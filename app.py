@@ -19,4 +19,4 @@ def hello_blank():
     return render_template('page_blank.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')     # Enter local ip
