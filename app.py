@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 import socket
 
-hostname = socket.gethostname()         #Get hostname
-IP = socket.gethostbyname(hostname)     #and local ip
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
 
 app = Flask(__name__)
 
@@ -23,4 +23,4 @@ def hello_blank():
     return render_template('page_blank.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host=IP)
+    app.run(debug=True, host=s.getsockname()[0])
