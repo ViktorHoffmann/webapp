@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     user = {'username': 'Viktor'}
-    return render_template('index.html', user=user)
+    return render_template('index.html', title='Home', user=user)
 
 @app.route('/hello/<name>')
 def hello(name):
