@@ -7,9 +7,20 @@ s.connect(("8.8.8.8", 80))
 app = Flask(__name__)
 
 @app.route('/')
+@app.route('/index')
 def index():
     user = {'username': 'Viktor'}
-    return render_template('index.html', title='Home', user=user)
+    posts = [
+        {
+            'author' : {'username' : 'Miguel'},
+            'body' : 'Beautyful day in Portland!'
+        },
+        {
+            'author' : {'username' : 'Susan'},
+            'body' : 'The Avengers Movie was so cool!'
+        }
+    ]
+    return render_template('index.html', title='Home', user=user, posts=posts)
 
 @app.route('/hello/<name>')
 def hello(name):

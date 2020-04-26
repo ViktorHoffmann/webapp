@@ -1,16 +1,8 @@
-<head>
-    <link rel="stylesheet" href='/static/style.css' />
-    {% if title %}
-    <title>{{title}} - Webapp</title>
-    {% else %}
-    <title>Welcome to Webapp</title>
-    {% endif %}
-</head>
-<body>
-        {% if title %}
-        <h1>{{title}} - Webapp</h1>
-        {% else %}
-        <h1>Welcome to Webapp</h1>
-        {% endif %}
-    <a href="/hello/{{user.username}}">Hi {{user.username}}!</a>
-</body>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{post.author.username}} says: <b>{{post.body}}</b></p></div>
+    {% endfor %}
+{% endblock %}
